@@ -43,15 +43,15 @@ resource "aws_launch_template" "main" {
     component = var.component
   }))
 
-  block_device_mappings {
-    device_name = "/dev/sda1"
-
-    ebs {
-      volume_size = 10
-      encrypted   = "true"
-      kms_key_id  = var.kms_key_id
-    }
-  }
+  //  block_device_mappings {
+  //    device_name = "/dev/sda1"
+  //
+  //    ebs {
+  //      volume_size = 10
+  //      encrypted   = "true"
+  //      kms_key_id  = var.kms_key_id
+  //    }
+  //  }
 }
 
 resource "aws_autoscaling_group" "main" {
