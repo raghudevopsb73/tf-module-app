@@ -87,8 +87,8 @@ resource "aws_autoscaling_group" "main" {
 resource "aws_route53_record" "dns" {
   zone_id = "Z055331734ICV430E01P7"
   name    = "${var.component}-dev"
-  type    = "A"
+  type    = "CNAME"
   ttl     = 30
-  records = []
+  records = [var.lb_dns_name]
 }
 
