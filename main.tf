@@ -42,7 +42,7 @@ resource "aws_launch_template" "main" {
     component = var.component
   })
 
-  root_block_device {
+  root_block_device = {
     encrypted  = true
     kms_key_id = var.kms_key_id
   }
