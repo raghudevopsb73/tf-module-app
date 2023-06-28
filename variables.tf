@@ -3,7 +3,7 @@ variable "component" {}
 variable "tags" {
   default = {}
 }
-variable "subnet_id" {}
+variable "subnets" {}
 variable "vpc_id" {}
 variable "sg_subnets_cidr" {}
 variable "app_port" {}
