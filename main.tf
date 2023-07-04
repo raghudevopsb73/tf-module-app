@@ -11,6 +11,13 @@ resource "aws_security_group" "main" {
   }
 
   ingress {
+    from_port   = 9100
+    to_port     = 9100
+    protocol    = "tcp"
+    cidr_blocks = var.allow_prometheus_cidr
+  }
+
+  ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
