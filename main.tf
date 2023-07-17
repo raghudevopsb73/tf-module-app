@@ -66,7 +66,7 @@ resource "aws_lb_listener_rule" "static" {
 
   condition {
     host_header {
-      values = ["${var.component}-${var.env}.rdevopsb73.online"]
+      values = ["${local.dns_name}.rdevopsb73.online"]
     }
   }
 }
@@ -121,7 +121,7 @@ resource "aws_autoscaling_group" "main" {
 
 resource "aws_route53_record" "dns" {
   zone_id = "Z055331734ICV430E01P7"
-  name    = var.component == "frontend" && var.env == "prod" ? "www" : "${var.component}-${var.env}"
+  name    = local.dns_name
   type    = "CNAME"
   ttl     = 30
   records = [var.lb_dns_name]
